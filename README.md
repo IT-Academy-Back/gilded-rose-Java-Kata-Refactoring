@@ -1,8 +1,8 @@
 
 ![Refactoring Kata](https://img.shields.io/badge/Kata%20Refactoring-Easy-brightgreen?style=flat-square)
 ![Kata CI Test](https://img.shields.io/github/actions/workflow/status/IT-Academy-Back/gilded-rose-Java-Kata-Refactoring/ci.yml?branch=main&label=CI%20Kata%20Test&style=flat-square)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=IT-Academy-Back_java-template-with-analysis&metric=coverage)](https://sonarcloud.io/summary/new_code?id=IT-Academy-Back_kata-rpg-refactoring)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=IT-Academy-Back_java-template-with-analysis&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=IT-Academy-Back_java-template-with-analysis)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=IT-Academy-Back_gilded-rose-Java-Kata-Refactoring&metric=coverage)](https://sonarcloud.io/summary/new_code?id=IT-Academy-Back_gilded-rose-Java-Kata-Refactoring)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=IT-Academy-Back_gilded-rose-Java-Kata-Refactoring&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=IT-Academy-Back_gilded-rose-Java-Kata-Refactoring)
 
 > ⚠️ **Nota:** Los badges de CI y Cobertura apunta al repositorio original.
 > Si haces un *fork* o usas este proyecto como *template*, cambia las URLs de los badges para que apunten a tu propio repositorio.
