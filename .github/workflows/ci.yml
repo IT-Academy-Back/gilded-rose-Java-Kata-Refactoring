@@ -1,0 +1,61 @@
+name: Kata CI Tests
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Cache Maven dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+      - name: Build and Test with Maven
+        run: mvn -B clean verify test
+
+      - name: Generate modern JaCoCo report
+        uses: danielpalme/ReportGenerator-GitHub-Action@5.1.26
+        with:
+          reports: target/site/jacoco/jacoco.xml
+          targetdir: target/site/jacoco
+          reporttypes: HtmlInline_AzurePipelines_Light
+
+      - name: Deploy JaCoCo to GitHub Pages
+        if: github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./target/site/jacoco
+          publish_branch: gh-pages
+
+      - name: Analyze with SonarCloud (optional)
+        if: env.SONAR_TOKEN != ''
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+          mvn sonar:sonar \
+            -Dsonar.projectKey=IT-Academy-Back_java-template-with-analysis \
+            -Dsonar.organization=it-academy-back \
+            -Dsonar.host.url=https://sonarcloud.io \
+            -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
