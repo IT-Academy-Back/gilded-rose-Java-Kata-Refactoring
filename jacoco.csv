@@ -1,2 +1,4 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
 java-template-with-analysis,it.academy,Main,4,0,0,0,2,0,2,0,2,0
+java-template-with-analysis,it.academy.gildedrose,GildedRose,0,243,7,29,0,30,7,13,0,2
+java-template-with-analysis,it.academy.gildedrose,Item,8,12,0,0,1,5,1,1,1,1
